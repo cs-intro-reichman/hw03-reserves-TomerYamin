@@ -40,10 +40,14 @@ public class Calendar1 {
 		// Replace this comment with your code
 	 } 
 		 
-    // Returns true if the given year is a leap year, false otherwise.
 	private static boolean isLeapYear(int year) {
-	    // Replace the following statement with your code
-		return false;
+	    boolean isLeap = false;
+		if ((year%400 ==0) || (year%4 ==0 && year%100 !=0)) {
+			isLeap = true;		
+	    	} 
+
+
+		return isLeap;
 	}
 	 
 	// Returns the number of days in the given month and year.
