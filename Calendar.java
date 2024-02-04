@@ -8,6 +8,7 @@ public class Calendar {
 	static int year = 1900;
 	static int dayOfWeek = 2;     // 1.1.1900 was a Monday
 	static int nDaysInMonth = 31; // Number of days in January
+	static int givenYear = 1900;
 
 	
 	
@@ -20,24 +21,19 @@ public class Calendar {
 	    // Prints each date dd/mm/yyyy in a separate line. If the day is a Sunday, prints "Sunday".
 	    // The following variable, used for debugging purposes, counts how many days were advanced so far.
 		int debugDaysCounter = 0;
-		int givenYear = Integer.parseInt(args[0]);
-		int givenYearPlus = givenYear + 1; 
+		 givenYear = Integer.parseInt(args[0]);
 		//int Nextyear = year +1;
 	    //// Write the necessary initialization code, and replace the condition
 	    //// of the while loop with the necessary condition
 		//dayOfMonth <= nDaysInMonth(month, year) && 
-		while (year < givenYear) {
+		while (year <= givenYear) {
 	 		advance();
 			//debugDaysCounter++;
 			if (debugDaysCounter == 100) { 
 				break;
 			}
 		}
-		while (year < givenYearPlus) {
-			advancePrint();
-		}
-
-	 	//debugDaysCounter++;
+			//debugDaysCounter++;
 	}
 	 		//// If you want to stop the loop after n days, replace the condition of the
 	 		//// if statement with the condition (debugDaysCounter == n)
@@ -51,69 +47,33 @@ public class Calendar {
 	 // If the month changes, sets the number of days in this month.
 	 // Side effects: changes the static variables dayOfMonth, month, year, dayOfWeek, nDaysInMonth.
 	 private static void advance() {
-			dayOfMonth++;
-			dayOfWeek++;
-				if  (dayOfWeek == 8) {
-					dayOfWeek = 1;
-
-				}
-
-
-				if (dayOfMonth == nDaysInMonth(month, year) + 1 ) {
-					month++;
-					dayOfMonth = 1;
-					nDaysInMonth(month, year);
-				}	
-
-				if (month == 13) {
-					month = 1;
-					year++;
-				}
-
-			
-	 }
-	 
-	 
-
-	 private static void advancePrint() {
-		System.out.println(dayOfMonth + "/" + month + "/" +  year + (dayOfWeek == 1 ? " Sunday": "" ));
+		if (year == givenYear) {
+			System.out.println(dayOfMonth + "/" + month + "/" +  year + (dayOfWeek == 1 ? " Sunday": "" ));
+		}
 		dayOfMonth++;
 		dayOfWeek++;
-			if  (dayOfWeek == 8) {
-				dayOfWeek = 1;
 
-			}
+		if  (dayOfWeek == 8) {
+			dayOfWeek = 1;
+
+		}
 
 
-			if (dayOfMonth == nDaysInMonth(month, year) + 1 ) {
-				month++;
-				dayOfMonth = 1;
-				nDaysInMonth(month, year);
-			}	
+		if (dayOfMonth == nDaysInMonth(month, year) + 1 ) {
+			month++;
+			dayOfMonth = 1;
+			nDaysInMonth(month, year);
 
-			if (month == 13) {
-				month = 1;
-				year++;
-			}
+		}	
 
+		if (month == 13) {
+			month = 1;
+			year++;
+
+		}
 		
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	 }
+	 
 		 
 	private static boolean isLeapYear(int year) {
 	    boolean isLeap = false;
