@@ -22,7 +22,10 @@ public class Calendar0 {
 
 	// Tests the nDaysInMonth function.
 	private static void nDaysInMonthTest(int year) {
-		// Replace this comment with your code
+		for (int i = 1; i <= 12; i++) {
+			System.out.println("Month " + i + " has " + nDaysInMonth(i, year) + " days");
+		}
+
 	}
 
 	public static boolean isLeapYear(int year) {
@@ -33,7 +36,7 @@ public class Calendar0 {
 
 		return isLeap;
 	}
-	}
+	
 	 
 	// Returns the number of days in the given month and year.
 	// April, June, September, and November have 30 days each.
@@ -41,15 +44,92 @@ public class Calendar0 {
 	// All the other months have 31 days.
 	
 	public static int nDaysInMonth(int month, int year) {
-		int days = 0;
-		for (int i = 1; i < 12; i++) {
-			if (month =   
-					
+		int daysInMonth = 0;
+		if (isLeapYear(year) == true) {
+			switch (month) {
+			case 1: 
+				daysInMonth = 31;
+				break;
+			case 2: 
+				daysInMonth = 29;
+				break;
+			case 3: 
+				daysInMonth = 31;
+				break;
+			case 4: 
+				daysInMonth = 30;
+				break;	
+			case 5: 
+				daysInMonth = 31;
+				break;
+			case 6: 
+				daysInMonth = 30;
+				break;
+			case 7: 
+				daysInMonth = 31;
+				break;
+			case 8: 
+				daysInMonth = 31;
+				break;
+			case 9: 
+				daysInMonth = 30;
+				break;
+			case 10: 
+				daysInMonth = 31;
+				break;
+			case 11: 
+				daysInMonth = 30;
+				break;
+			case 12: 
+				daysInMonth = 31;
+				break;
+			}	
 
 		}
 
- 
+		else {
+			switch (month) {
+			case 1: 
+				daysInMonth = 31;
+				break;
+			case 2: 
+				daysInMonth = 28;
+				break;
+			case 3: 
+				daysInMonth = 31;
+				break;
+			case 4: 
+				daysInMonth = 30;
+				break;	
+			case 5: 
+				daysInMonth = 31;
+				break;
+			case 6: 
+				daysInMonth = 30;
+				break;
+			case 7: 
+				daysInMonth = 31;
+				break;
+			case 8: 
+				daysInMonth = 31;
+				break;
+			case 9: 
+				daysInMonth = 30;
+				break;
+			case 10: 
+				daysInMonth = 31;
+				break;
+			case 11: 
+				daysInMonth = 30;
+				break;
+			case 12: 
+				daysInMonth = 31;
+				break;
+
+			} 		   
+					
+		}
 		
-		return 0;
+		return daysInMonth;
 	}
 }
